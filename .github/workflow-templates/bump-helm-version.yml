@@ -11,6 +11,3 @@ on:
 jobs:
   bump-helm-version:
     uses: ps-unite/workflows/.github/workflows/bump-helm-chart-versions.yml@main
-
-
-
