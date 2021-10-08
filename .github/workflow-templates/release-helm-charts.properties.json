@@ -1,8 +1,5 @@
 {
   "name": "Release Helm Charts",
   "description": "Checks the repo for charts stored in the `charts` directory and pushes them to Harbor",
-  "iconName": "helm-icon-color",
-  "filePatterns": [
-    "charts/*/Chart.yaml"
-  ]
+  "iconName": "helm-icon-color"
 }
