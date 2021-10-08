@@ -1,0 +1,16 @@
+name: Bump Helm Chart Versions
+
+on:
+  pull_request:
+    branches:
+      - $default-branch
+    paths:
+      - charts/**
+      
+
+jobs:
+  bump-helm-version:
+    uses: ps-unite/workflows/.github/workflows/bump-helm-chart-versions.yml@main
+
+
+

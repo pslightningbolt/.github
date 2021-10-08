@@ -1,0 +1,17 @@
+name: Release Helm Charts to Harbor
+
+on:
+  push:
+    branches:
+      - $default-branch
+    paths:
+      - charts/**
+      
+
+jobs:
+  release-helm-charts:
+    uses: ps-unite/workflows/.github/workflows/release-helm-charts.yml@main
+    with:
+      chartRepositoryURL: https://harbor.pserv.io/chartrepo/lightningbolt
+    secrets:
+      harborRobot: ${{ secrets.HARBOR_ROBOT }}

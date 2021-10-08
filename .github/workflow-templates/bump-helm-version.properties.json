@@ -1,0 +1,8 @@
+{
+  "name": "Bump Helm Chart Versions",
+  "description": "Checks the repo for charts stored in the `charts` directory and bumps their version if anything has changed",
+  "iconName": "helm-icon-color",
+  "filePatterns": [
+    "charts/*/Chart.yaml"
+  ]
+}
