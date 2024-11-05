@@ -1,0 +1,23 @@
+name: "Get Image Tag"
+description: "Generate a tag for this branch from the branch name and build number"
+
+outputs:
+  image-tag:
+    description: "Generated image tag for this branch"
+    value: ${{ steps.get-tag-name.outputs.tag-name }}
+
+runs:
+  using: "composite"
+  steps:
+    - shell: bash
+      run: "echo ${{ github.ref }} - ${{ github.run_number }}"
+    - shell: bash
+      env:
+        GITHUB_REF: ${{ github.ref }}
+        RUN_NUMBER: ${{ github.run_number }}
+      run: "echo ${GITHUB_REF} - ${RUN_NUMBER}"
+    - id: get-tag-name
+      shell: bash
+      run: |
+        tag_name=$(echo "${{ github.ref }}" | awk '{gsub(/\//, "-"); print substr(tolower($0), 12)}')
+        echo "tag-name=ga-${tag_name}.${{ github.run_number }}" >> $GITHUB_OUTPUT
